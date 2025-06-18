@@ -1,0 +1,326 @@
+==========================================================================
+==                            API CHANGE LOG                            ==
+==========================================================================
+                              DIRECTORY API                               
+--------------------------------------------------------------------------
+--                              What's New                              --
+--------------------------------------------------------------------------
+- PUT    /users/{id}/last-connection-date
+- PUT    /users/first-config-done
+- PUT    /users/admin
+- PUT    /legal-suppliers/{legalSupplierId}/manage-user-access-by-supplier
+- PUT    /legal-suppliers/{legalSupplierId}/manage-function-by-supplier
+- PUT    /legal-suppliers/{legalSupplierId}/manage-access-by-supplier
+- PUT    /legal-suppliers/{legalSupplierId}/change-status
+- PUT    /legal-suppliers/validate-contacts
+- PUT    /legal-suppliers/unlock-contacts
+- PUT    /contacts/{adeoUniqueId}
+- PUT    /authenticated/contacts/{adeoUniqueId}
+- PUT    /authenticated/contacts/updateContact/{adeoUniqueId}
+- POST   /users/reminder-mail
+- POST   /users/recovery-identifier
+- POST   /users/accept-cgu
+- GET    /user-application-accesses/light/{userId}/{legalSupplierId}
+- POST   /user-application-accesses/light/{userId}/{legalSupplierId}
+- POST   /user-application-accesses/light/bylegalsupplier/{userId}/{legalSupplierId}
+- GET    /user-application-accesses/light-fill-contact/{buCode}/{legalSupplierId}
+- POST   /user-application-accesses/light-fill-contact/{buCode}/{legalSupplierId}
+- GET    /user-application-accesses/light-fill-contact-by-legal-supplier/{buCode}/{legalSupplierId}
+- POST   /user-application-accesses/light-fill-contact-by-legal-supplier/{buCode}/{legalSupplierId}
+- POST   /user-application-accesses/by-supplier
+- POST   /user-application-accesses/by-legal-supplier/{legalSupplierId}
+- POST   /supplier-application-accesses/suppliers
+- POST   /supplier-application-accesses/legal-suppliers
+- POST   /roles
+- POST   /contact-supplier-functions/by-supplier
+- POST   /contact-supplier-functions/by-legal-supplier
+- GET    /authenticated/contacts
+- POST   /authenticated/contacts
+- POST   /authenticated/contacts/user
+- POST   /authenticated/contacts/user-admin
+- POST   /authenticated/contacts/account-request
+- POST   /application-bu-accesses/
+- GET    /user-application-accesses
+- GET    /user-application-accesses/{userId}/{legalSupplierId}
+- GET    /suppliers/search
+- GET    /suppliers/bu/{buCode}/extract
+- GET    /supplier-application-accesses/suppliers/{supplierId}
+- GET    /supplier-application-accesses/legal-suppliers/{legalSupplierId}
+- GET    /roles/{login}
+- GET    /roles/bu/{buId}
+- GET    /partner-identification/contacts
+- GET    /legal-suppliers/users/{userId}
+- GET    /legal-suppliers/suppliers/{supplierId}
+- GET    /legal-suppliers/status/bu/{codeBu}
+- GET    /legal-suppliers/missing-functions
+- GET    /legal-suppliers/missing-functions/extract
+- GET    /legal-suppliers/contacts/{contactId}
+- GET    /legal-suppliers/actif-old-actualization-date/bu/{codeBu}
+- GET    /functions
+- GET    /flow-monitoring
+- GET    /flow-monitoring/{id}/rejects/extract
+- GET    /departments/bu/{businessUnitId}
+- GET    /contacts/history
+- GET    /contacts/contact-list-extract/{buCode}
+- GET    /contacts/admins/{tvaNumber}
+- GET    /contacts/admins/**
+- GET    /contact-supplier-functions
+- GET    /bu/activated
+- GET    /batch/search
+- GET    /authenticated/contacts/{buCode}/{legalSupplierId}
+- GET    /authenticated/contacts/searchContacts
+- GET    /authenticated/contacts/searchContactsBySuppliers
+- GET    /authenticated/contacts/history
+- GET    /authenticated/contacts/contact-list-extract/{buCode}
+- GET    /authenticated/contacts/by-access
+- GET    /authenticated/contacts/bu/{bu}
+- GET    /authenticated/contacts/admins/{tvaNumber}
+- GET    /authenticated/contacts/admins/**
+- GET    /authenticated/bu
+- GET    /authenticated/bu/{buCode}/access
+- GET    /authenticated/application-accesses/applicationCode/{applicationCode}
+- GET    /applications/bu/{buCode}/internals
+- GET    /applications/bu/{buCode}/externals
+- GET    /api/userinfo
+- DELETE /users
+- DELETE /suppliers/{id}
+- DELETE /purge/users
+- DELETE /authenticated/contacts/{contactId}
+- DELETE /authenticated/contacts/deleteAndUpdateImat/{contactId}
+- DELETE /legal-suppliers/{legalSupplierId}
+
+--------------------------------------------------------------------------
+--                            What's Deleted                            --
+--------------------------------------------------------------------------
+- GET    /suppliers/findSuppliers
+- GET    /authorization/legalAuthorization
+
+--------------------------------------------------------------------------
+--                          What's Deprecated                           --
+--------------------------------------------------------------------------
+- GET    /contacts/{buCode}/{legalSupplierId}
+- GET    /bu/{code}
+- GET    /bu/user-login/{userLogin}
+- GET    /contacts
+- GET    /contacts/searchContacts
+- GET    /contacts/searchContactsBySuppliers
+- GET    /contacts/by-access
+- GET    /contacts/bu/{bu}
+
+--------------------------------------------------------------------------
+--                            What's Changed                            --
+--------------------------------------------------------------------------
+- GET    /contacts/{buCode}/{legalSupplierId}
+- GET    /bu/{code}
+  Return Type:
+    - Changed 200 OK
+      Media types:
+        - Changed application/json
+          Schema: Backward compatible
+    - Changed 404 Not Found
+      Media types:
+        - Changed application/json
+          Schema: Backward compatible
+- GET    /bu/user-login/{userLogin}
+  Return Type:
+    - Changed 200 OK
+      Media types:
+        - Changed application/json
+          Schema: Backward compatible
+- GET    /applications/application-by-code-and-bucode
+  Return Type:
+    - Changed 200 OK
+      Media types:
+        - Changed application/json
+          Schema: Backward compatible
+- GET    /application-bu-accesses/bu/{buCode}
+  Return Type:
+    - Changed 200 OK
+      Media types:
+        - Changed application/json
+          Schema: Backward compatible
+- GET    /application-accesses/internal
+  Return Type:
+    - Changed 200 OK
+      Media types:
+        - Changed application/json
+          Schema: Backward compatible
+- GET    /application-accesses/internal/v2
+  Return Type:
+    - Changed 200 OK
+      Media types:
+        - Changed application/json
+          Schema: Backward compatible
+- GET    /application-accesses/external
+  Return Type:
+    - Changed 200 OK
+      Media types:
+        - Changed application/json
+          Schema: Backward compatible
+- GET    /application-accesses/external/v2
+  Return Type:
+    - Changed 200 OK
+      Media types:
+        - Changed application/json
+          Schema: Backward compatible
+- GET    /application-accesses/application-access-by-code-and-bucode
+  Return Type:
+    - Changed 200 OK
+      Media types:
+        - Changed application/json
+          Schema: Backward compatible
+- GET    /contacts
+  Parameter:
+    - Add contactId in query
+    - Changed login in query
+  Return Type:
+    - Changed 200 OK
+      Media types:
+        - Changed application/json
+          Schema: Backward compatible
+- GET    /contacts/searchContacts
+  Parameter:
+    - Delete fillFunction in query
+  Return Type:
+    - Changed 200 OK
+      Media types:
+        - Changed application/json
+          Schema: Backward compatible
+- GET    /contacts/searchContactsBySuppliers
+  Return Type:
+    - Changed 200 OK
+      Media types:
+        - Changed application/json
+          Schema: Backward compatible
+- GET    /contacts/by-access
+  Return Type:
+    - Changed 200 OK
+      Media types:
+        - Changed application/json
+          Schema: Backward compatible
+- GET    /legal-suppliers
+  Parameter:
+    - Add numTva in query
+  Return Type:
+    - Changed 200 OK
+      Media types:
+        - Changed application/json
+          Schema: Backward compatible
+    - Changed 404 Not Found
+      Media types:
+        - Changed application/json
+          Schema: Backward compatible
+- GET    /legal-suppliers/{legalSupplierId}
+  Return Type:
+    - Changed 200 OK
+      Media types:
+        - Changed application/json
+          Schema: Backward compatible
+    - Changed 404 Not Found
+      Media types:
+        - Changed application/json
+          Schema: Backward compatible
+- GET    /legal-suppliers/by-tva/{numTva}
+  Return Type:
+    - Changed 200 OK
+      Media types:
+        - Changed application/json
+          Schema: Backward compatible
+- GET    /legal-suppliers/by-supplier-code/{codeBu}/{supplierCode}
+  Return Type:
+    - Changed 200 OK
+      Media types:
+        - Changed application/json
+          Schema: Backward compatible
+    - Changed 404 Not Found
+      Media types:
+        - Changed application/json
+          Schema: Backward compatible
+- GET    /legal-suppliers/by-login/{login}
+  Return Type:
+    - Changed 200 OK
+      Media types:
+        - Changed application/json
+          Schema: Backward compatible
+- GET    /legal-suppliers/by-login/{buCode}/{login}
+  Return Type:
+    - Changed 200 OK
+      Media types:
+        - Changed application/json
+          Schema: Backward compatible
+    - Changed 404 Not Found
+      Media types:
+        - Changed application/json
+          Schema: Backward compatible
+- GET    /legal-suppliers/actives-by-bu
+  Return Type:
+    - Changed 200 OK
+      Media types:
+        - Changed application/json
+          Schema: Backward compatible
+    - Changed 404 Not Found
+      Media types:
+        - Changed application/json
+          Schema: Backward compatible
+- GET    /contacts/bu/{bu}
+  Parameter:
+    - Changed logins in query
+  Return Type:
+    - Changed 200 OK
+      Media types:
+        - Changed application/json
+          Schema: Backward compatible
+- GET    /user-application-accesses/by-application/{buCode}/{applicationCode}
+  Parameter:
+    - Changed logins in query
+  Return Type:
+    - Changed 200 OK
+      Media types:
+        - Changed application/json
+          Schema: Backward compatible
+- GET    /suppliers
+  Return Type:
+    - Changed 200 OK
+      Media types:
+        - Changed application/json
+          Schema: Backward compatible
+- GET    /suppliers/suppliers-by-ids
+  Return Type:
+    - Changed 200 OK
+      Media types:
+        - Changed */*
+          Schema: Backward compatible
+- GET    /suppliers/suppliers-avs-after-today
+  Return Type:
+    - Changed 204 No Content
+      Media types:
+        - Changed application/json
+          Schema: Backward compatible
+- GET    /suppliers/searchCountSupplier
+  Return Type:
+    - Changed 400 Bad Request
+      Media types:
+        - Changed application/json
+          Schema: Backward compatible
+    - Changed 200 OK
+      Media types:
+        - Changed application/json
+          Schema: Backward compatible
+- GET    /legal-suppliers/search
+  Return Type:
+    - Changed 200 OK
+      Media types:
+        - Changed application/json
+          Schema: Backward compatible
+- GET    /authorization
+  Return Type:
+    - Changed 200 OK
+      Media types:
+        - Changed application/json
+          Schema: Backward compatible
+--------------------------------------------------------------------------
+--                                Result                                --
+--------------------------------------------------------------------------
+                 API changes broke backward compatibility                 
+--------------------------------------------------------------------------
+
